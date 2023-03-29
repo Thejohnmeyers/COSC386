@@ -2,6 +2,11 @@
 
 Job Fair Database
 
+<div align="center">
+<img src="database.png" alt="Welcome Screen" width="600" height="300">
+</div>
+
+
 Description:
 This database will keep track of all of the companies that will be at job fairs within
 Salisbury's campus. This database will also track what jobs each company is offering and the
@@ -29,7 +34,7 @@ participation and are hopeful to be able to include a section for student feedba
 company feedback so that career services will be able to look at the feedback and improve the
 job fair year after year. Overall we are hoping that our job fair database will be a powerful and
 useful tool for the job seekers and companies to be able to easily access and manage job
-information. We believe that by centralizing this data all into one place it will streamline the
+information. We believe that by centralizing this data all into one place it will streamline thepdf
 recruitment process and help to ensure the job fair is a success for all involved.
 
 

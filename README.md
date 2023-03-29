@@ -94,5 +94,5 @@ F.K. (Phone Number, Email) references Contact Info (Phone Number, Email)
 F.K. (Cname, Caddress) references Company(Name, Address));
 
 <div align="center">
-<img src="ER_Diagram.png" alt="ER" width="400" height="400">
+<img src="ER_Diagram.png" alt="ER" width="500" height="300">
 </div>

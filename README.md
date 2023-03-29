@@ -49,6 +49,7 @@ recruitment process and help to ensure the job fair is a success for all involve
 <div align="center">
 <img src="Databaseexample1.png" alt="example" width="600" height="300">
 </div>
+
 ## Group Members:
 John Meyers
 Gavin Beauchamp

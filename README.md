@@ -1,13 +1,13 @@
 # COSC386
 
-Job Fair Database
+## Job Fair Database
 
 <div align="center">
 <img src="database.png" alt="Welcome Screen" width="600" height="300">
 </div>
 
 
-Description:
+## Description:
 This database will keep track of all of the companies that will be at job fairs within
 Salisbury's campus. This database will also track what jobs each company is offering and the
 majors that they are hiring. We will be implementing a LAMP(Linux, Apache, MySQL, PHP)
@@ -23,6 +23,8 @@ attend because the companies and the jobs they offer aren’t readily available 
 prior to the job fair. Our database will work to help the students and lessen the advertisements
 needed per job fair because as the companies RSVP for the job fair they can be added to the
 database and help students to realize if they want to attend or not.
+
+## Admin Login:
 We will create an admin login for the database that allows anyone who has access to will
 be able to adjust a company's data, any of the data for the job fair, and add or remove companies
 from the job fair. It is important to keep the interface clean so that the job fairs data and the
@@ -35,7 +37,7 @@ Spreadsheets and excel).
 <img src="admin_login.png" alt="Login" width="600" height="300">
 </div>
 
-
+## Features:
   For a few other excess features we will keep track of student
 participation and are hopeful to be able to include a section for student feedback as well as
 company feedback so that career services will be able to look at the feedback and improve the
@@ -47,7 +49,7 @@ recruitment process and help to ensure the job fair is a success for all involve
 <div align="center">
 <img src="Databaseexample1.png" alt="example" width="600" height="300">
 </div>
-Group Members:
+## Group Members:
 John Meyers
 Gavin Beauchamp
 Sean Berndlmaier
@@ -58,7 +60,7 @@ COSC 386-001
 2/28/2023
 
 
-Requirements:
+## Requirements:
 The database is centered around the Company entity set.
 For each company, we will record the name of the company as well as the address.
 Connected to the Company entity set will be 3 more entity sets (Job Fair, Contact Info, and Job
@@ -74,7 +76,7 @@ There will be two subclasses underneath Job Post. Fulltime, will keep track of b
 Internship will keep track of time frame.
 
 
-Relationship Schema:
+## Relationship Schema:
 Company (Name, Address);
 Job Fair (Date, Location);
 Contact Info (Phone Number, Email, Social Media, Website);

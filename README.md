@@ -29,7 +29,14 @@ from the job fair. It is important to keep the interface clean so that the job f
 company’s data can be clearly visualized so that students will be able to access the data easily. If
 the data isn’t easily viewable by the students or modifiable by the admins then it is likely that
 both parties will find it easier to just revert back to the old ways of sending out the data(i.e.
-Spreadsheets and excel). For a few other excess features we will keep track of student
+Spreadsheets and excel).
+
+<div align="center">
+<img src="admin_login.png" alt="Login" width="600" height="300">
+</div>
+
+
+  For a few other excess features we will keep track of student
 participation and are hopeful to be able to include a section for student feedback as well as
 company feedback so that career services will be able to look at the feedback and improve the
 job fair year after year. Overall we are hoping that our job fair database will be a powerful and
@@ -37,7 +44,9 @@ useful tool for the job seekers and companies to be able to easily access and ma
 information. We believe that by centralizing this data all into one place it will streamline thepdf
 recruitment process and help to ensure the job fair is a success for all involved.
 
-
+<div align="center">
+<img src="Databaseexample1.png" alt="example" width="600" height="300">
+</div>
 Group Members:
 John Meyers
 Gavin Beauchamp
@@ -84,3 +93,6 @@ Has (Phone Number, Email, Cname, Caddress
 F.K. (Phone Number, Email) references Contact Info (Phone Number, Email)
 F.K. (Cname, Caddress) references Company(Name, Address));
 
+<div align="center">
+<img src="ER_Diagram.png" alt="ER" width="400" height="400">
+</div>

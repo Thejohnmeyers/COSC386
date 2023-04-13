@@ -17,5 +17,12 @@
 
         <button type="submit">Login</button>
     </form>
+    <form action="Signup.php" method="post">
+        <?php if(isset($_GET['error'])) {?>
+            <p class="error"> <?php echo $_GET['error']; ?></p>
+        <?php } ?>
+        <button type="Sign up">Sign up</button>
+        
+    </form>
 </body>
 </html>

@@ -32,7 +32,7 @@ if(mysqli_num_rows($result) === 1){
         echo "You have successfully logged in";
         $_SESSION['user_name'] = $row['user_name'];
         $_SESSION['name'] = $row['name'];
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
         header("Location: home.php");
         exit();
     }

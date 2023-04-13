@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -153,7 +153,7 @@ h1 {
 <?php
 if ($connection = @mysqli_connect('localhost', 'lscott3', 'lscott3', 'JobFairDB'))
 {
-	print "<p>Successfully connected to MySQL server...";
+	print "<p>Successfully connected to MySQL server...</p>";
 }
 
 $query="select logo, jobPost.cname, title, major from logos join jobPost where logos.cname = jobPost.cname;";
@@ -191,11 +191,11 @@ $r=mysqli_query($connection, $query);
         <thead>
             <tr>
 		<th><img src="logos/su3.png" width="75" height="25"></th>
-		<th><input type="submit"name="CompN">Company Name</input></th>
-            <!--    <th><button id = "CompN" class="table-button" >Company Name </button></th>-->
+		<!--<th><input type="submit"name="CompN">Company Name</input></th>-->
+            	<th><button id = "CompN" class="table-button" >Company Name </button></th>
                 <th><button id = "JobT" class="table-button" >Job Title</button></th>
-		<th><input type="submit"name="Major">Major</input></th>
-		<!--<th><button id = "Major" class="table-button" >Major</button></th>-->
+		<!--<th><input type="submit"name="Major">Major</input></th>-->
+		<th><button id = "Major" class="table-button" >Major</button></th>
 	<!--	<script>
 			document.getElementById("CompN").addEventListener("click", function() {
 				var xhr = new XMLHttpRequest();
@@ -209,7 +209,7 @@ $r=mysqli_query($connection, $query);
 	<tbody>
 	
 
-<!---<table border='5'>
+<!--<table border='5'>
         <thead>
 	    <tr>
 		<th></th>
@@ -220,25 +220,7 @@ $r=mysqli_query($connection, $query);
 	    </thead>"-->
 
 <?php
-if(isset($_POST["Major"])){
-	$query="logo, jobPost.cname, title, major from logos join jobPost where logos.cname = jobPost.cname order by major ASC;"
-$r=mysqli_query($connection, $query);
-while ($row=mysqli_fetch_array($r))
-{
-    echo "<tr>
-                <td><img src='logos/{$row['logo']}' width='25' height='25'</td>
-                <td>{$row['cname']}</td>
-                <td>{$row['title']}</td>
-                <td>{$row['major']}</td>
-        </tr>";
-}
-
-echo "</tbody>
-</table>";
-
-
-}
-$r=mysqli_query($connection, $query);
+/**/$r=mysqli_query($connection, $query);
 while ($row=mysqli_fetch_array($r))
 {
     echo "<tr>
@@ -257,6 +239,7 @@ mysqli_close($connection);
     
 </body>
 </html>
+
 <?php
 }
     else{
@@ -266,4 +249,3 @@ mysqli_close($connection);
 ?>
 
 
--->

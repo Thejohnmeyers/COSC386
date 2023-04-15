@@ -77,6 +77,9 @@ button:hover {
 <form action="signupConn.php" method="POST" style="border:1px solid #ccc">
   <div class="container">
     <h1>Sign Up</h1>
+    <?php if(isset($_GET['error'])) {?>
+            <p class="error"> <?php echo $_GET['error']; ?></p>
+        <?php } ?>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
@@ -97,7 +100,7 @@ button:hover {
     </label>
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
+        <a href="index.php"> Cancel </a>
       <button type="submit" name ="submit"class="signupbtn">Sign Up</button>
     </div>
   </div>
@@ -105,5 +108,3 @@ button:hover {
 
 </body>
 </html>
-
-

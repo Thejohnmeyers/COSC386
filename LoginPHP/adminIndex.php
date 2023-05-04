@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title> LOGIN </title>
+    <title> Admin LOGIN </title>
     <link rel ="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form action="login.php" method="post">
-        <h2>LOGIN</h2>
+    <form action="adminLogin.php" method="post">
+        <h2>Admin LOGIN</h2>
         <?php if(isset($_GET['error'])) {?>
             <p class="error"> <?php echo $_GET['error']; ?></p>
         <?php } ?>
@@ -18,13 +17,6 @@
 
         <button type="submit">Login</button>
     </form>
-    <form action="Signup.php" method="post">
-        <?php if(isset($_GET['error'])) {?>
-            <p class="error"> <?php echo $_GET['error']; ?></p>
-        <?php } ?>
-        <button type="Sign up">Sign up</button>
-        
-    </form>
-    <a href="adminIndex.php">admin login</a>
+    <a href="index.php">user login</a>
 </body>
 </html>

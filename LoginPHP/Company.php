@@ -1,11 +1,3 @@
-<?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-if(isset($_SESSION['email']) && isset($_SESSION['user_name'])){
-    ?>
 <!doctype html>
 <html>
 <style>
@@ -17,6 +9,21 @@ body {
 h1 { 
 	color: blue; 
 }
+
+.header {
+grid-area: header;
+padding: 20px;
+text-align: center;
+font-size: 25px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+	'header header header header header header'
+	'left left middle middle middle middle'
+	'footer footer footer footer footer footer';
+} 
 
 .p1 {
     font: inherit;
@@ -37,13 +44,18 @@ h1 {
     gap: 1rem;
 }
 
+.middle {
+    grid-area: middle;
+}
+
 .link {
     background: none;
     border: none;
     text-decoration: none;
     font: inherit;
-    font-size: 16px;
+    font-size: 25px;
     cursor: pointer;
+    color: white;
     padding: 0;
 }
 
@@ -54,6 +66,7 @@ h1 {
 
 .dropdown {
     position: relative;
+    color: white;
 }
 
 .dropdown-menu {
@@ -98,9 +111,9 @@ h1 {
 
 .content-table {
     border-collapse: collapse;
-    margin: 25px 25px;
+    margin: auto;
     font-size: 0.9em;
-    min-width: 400px;
+    width: 60%;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, .25)
@@ -139,6 +152,18 @@ h1 {
 	font-size: large;
 	font-weight: bold;
 }
+
+@media (max-width: 600px) {
+  .grid-container {
+     grid-template-areas:
+	'header header header header header header'
+	'left left left left left left'
+	'middle middle middle middle middle middle'
+	'right right right right right right'
+	'footer footer footer footer footer footer';
+     }
+}
+
 </style>
 <head>
 	<meta charset="UTF-8">
@@ -153,25 +178,43 @@ h1 {
 <?php
 if ($connection = @mysqli_connect('localhost', 'lscott3', 'lscott3', 'JobFairDB'))
 {
-	print "<p>Successfully connected to MySQL server...</p>";
+	//print "<p>Successfully connected to MySQL server...</p>";
 }
 
 $query="select logo, jobPost.cname, title, major from logos join jobPost where logos.cname = jobPost.cname;";
 $logo="select logo from Companies";
 $r=mysqli_query($connection, $query);
-?><span class="p1">Search
+?>
+<div class="grid-container">
+<span class="header">Search: <p> Major: <input type="text" id="txt1"></p>
 	<div class="dropdown" data-dropdown>
-        <button class="link" data-dropdown-button>Major</button>
+	<button class="link" data-dropdown-button>Major</button>
         <div class="dropdown-menu information-grid">
-            <div class="dropdown-links">
-            <a href="#" class="link">Computer Science</a>
-            <a href="#" class="link">Finance</a>
-            <a href="#" class="link">Accounting</a>
-            <a href="#" class="link">Data Science</a>
-            <a href="#" class="link">Math</a>
+            <div class="dropdown-links" name="major">
+	    <a value = "Computer Science" href="#" class="link">Computer Science</a>
+            <a value = "Finance" href="#" class="link">Finance</a>
+            <a value = "Accounting" href="#" class="link">Accounting</a>
+            <a value = "Data Science" href="#" class="link">Data Science</a>
+            <a value = "Math" href="#" class="link">Math</a>
             </div>
-        </div>
+	</div>
     </div></span>
+
+<script>
+function showHint(str) {
+	if (str == "") {
+		dcument.getElementById("txtHint").innerHTML = "";
+		return;
+	}
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {
+			document.getElementById("p1").innerHTML = 
+			this.responseText;
+		}
+		xhttp.open("GET", "text.php?q="+str);
+		xhttp.send();
+	}
+	</script>
 <!--	<script>
 	var submitButton = document.getElementById('CompN');
 	let buttonClicked = false;
@@ -187,40 +230,53 @@ $r=mysqli_query($connection, $query);
 	 }
 	 })
 	</script>-->
+	<div class = "middle">
 	<table id = "database" class="content-table">
         <thead>
             <tr>
 		<th><img src="logos/su3.png" width="75" height="25"></th>
-		<!--<th><input type="submit"name="CompN">Company Name</input></th>-->
             	<th><button id = "CompN" class="table-button" >Company Name </button></th>
                 <th><button id = "JobT" class="table-button" >Job Title</button></th>
-		<!--<th><input type="submit"name="Major">Major</input></th>-->
 		<th><button id = "Major" class="table-button" >Major</button></th>
-	<!--	<script>
-			document.getElementById("CompN").addEventListener("click", function() {
-				var xhr = new XMLHttpRequest();
-				xhr.open("GET", "update_query.php?query=new_query", true);
-				xhr.send();
-		});
-		</script>-->
 		
             </tr>
 	</thead>
 	<tbody>
+<?php
+
+$major = $_POST['major'];
+echo "$major";
+if ($major != "")
+{
 	
 
-<!--<table border='5'>
-        <thead>
-	    <tr>
-		<th></th>
-                <th> Company Name </th>
-                <th> Job Title </th>
-                <th> Major </th>
-            </tr>
-	    </thead>"-->
+}
 
+else
+{
+$r=mysqli_query($connection, $query);
+while ($row=mysqli_fetch_array($r))
+{
+    echo "<tr>
+    		<td><img src='logos/{$row['logo']}' width='25' height='25'</td>
+    		<td>{$row['cname']}</td>
+    		<td>{$row['title']}</td>
+    		<td>{$row['major']}</td>
+    	</tr>";
+}
+echo "</tbody>
+</table>
+</div>
+</div>";
+
+mysqli_close($connection);
+
+}
+
+?>
 <?php
-/**/$r=mysqli_query($connection, $query);
+ 
+ /*$r=mysqli_query($connection, $query);
 while ($row=mysqli_fetch_array($r))
 {
     echo "<tr>
@@ -231,21 +287,28 @@ while ($row=mysqli_fetch_array($r))
     	</tr>";
 }
 
+echo "<script>
+	$(document).on('click', '#database th', function() {
+		var newOrder = $(this).index() + 1;
+
+		$.ajax({
+			url: 'text.php',
+			type: 'POST',
+			data: { major: $(this).data('major'), newOrder: newOrder },
+			success: function(response) {
+				$('#database').html(response);
+			}
+		});
+	});
+	</script>";
+
 echo "</tbody>
-</table>";
+</table>
+</div>
+</div>";
 
 mysqli_close($connection);
-?>
+ */?>
     
 </body>
 </html>
-
-<?php
-}
-    else{
-    header("Location: index.php");
-    exit();
-}
-?>
-
-

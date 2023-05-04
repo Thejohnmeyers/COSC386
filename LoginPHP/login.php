@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "logininfoDB.php";
+include "logininfoConn.php";
 
 function validate($data) {
     $data = trim($data);

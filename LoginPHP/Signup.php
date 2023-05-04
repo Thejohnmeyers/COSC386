@@ -1,7 +1,12 @@
-
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html>
 <style>
+<?php
+$_SESSION['id'] = '98563786'
+?>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
